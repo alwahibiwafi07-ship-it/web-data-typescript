@@ -1,5 +1,4 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 const kontainerData = document.getElementById("kontainerData");
 const search = document.getElementById('search');
 const nilaiRata2 = document.getElementById('nilaiRata2');
