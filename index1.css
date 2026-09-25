@@ -1,0 +1,282 @@
+/* index.css — gaya visual untuk halaman Data Siswa */
+
+:root {
+  --ink: #172554;
+  --muted: #64748b;
+  --primary: #4f46e5;
+  --primary-dark: #3730a3;
+  --accent: #06b6d4;
+  --surface: rgba(255, 255, 255, 0.88);
+  --line: #e2e8f0;
+  --shadow: 0 24px 70px rgba(30, 41, 94, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  font-family: "Inter", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at 8% 10%, rgba(129, 140, 248, 0.28), transparent 30%),
+    radial-gradient(circle at 92% 12%, rgba(34, 211, 238, 0.2), transparent 26%),
+    linear-gradient(135deg, #f8fafc 0%, #eef2ff 52%, #ecfeff 100%);
+}
+
+body::before {
+  position: fixed;
+  z-index: -1;
+  inset: auto -8rem -10rem auto;
+  width: 24rem;
+  height: 24rem;
+  content: "";
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.16);
+  filter: blur(12px);
+}
+
+.navbar {
+  border: 0;
+}
+
+body > .navbar {
+  min-height: 76px;
+  padding: 0.9rem clamp(1rem, 4vw, 4rem);
+  background: rgba(255, 255, 255, 0.72) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 30px rgba(51, 65, 85, 0.06);
+  backdrop-filter: blur(16px);
+}
+
+.navbar-brand {
+  color: var(--ink) !important;
+  letter-spacing: -0.03em;
+}
+
+body > .navbar .navbar-brand h2 {
+  margin: 0;
+  font-size: clamp(1.25rem, 2vw, 1.55rem);
+  font-weight: 800;
+}
+
+body > .navbar .navbar-brand h2::before {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  margin-right: 0.65rem;
+  place-items: center;
+  content: "✦";
+  color: white;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.3);
+}
+
+.nav-link {
+  margin: 0 0.15rem;
+  color: #475569 !important;
+  font-weight: 600;
+  border-radius: 0.7rem;
+  transition: color 180ms ease, background 180ms ease, transform 180ms ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--primary) !important;
+  background: #eef2ff;
+  transform: translateY(-1px);
+}
+
+.tampilan_utama {
+  width: min(1100px, calc(100% - 2rem));
+  margin: clamp(2rem, 6vw, 5rem) auto;
+}
+
+.tampilan_utama > .navbar {
+  padding: 1.6rem clamp(1.2rem, 4vw, 2rem);
+  background: transparent !important;
+}
+
+.tampilan_utama > .navbar .navbar-brand h2 {
+  margin: 0;
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
+}
+
+.tampilan_utama > .navbar .navbar-brand h2::after {
+  display: block;
+  width: 3.5rem;
+  height: 0.25rem;
+  margin-top: 0.65rem;
+  content: "";
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+}
+
+.tampilan_utama form {
+  gap: 0.6rem;
+}
+
+.tampilan_utama form .form-control {
+  min-width: 230px;
+  padding: 0.75rem 1rem;
+  color: var(--ink);
+  border: 1px solid #dbe4f0;
+  border-radius: 0.85rem !important;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 5px 16px rgba(51, 65, 85, 0.05);
+}
+
+.form-control:focus {
+  border-color: #818cf8;
+  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.14);
+}
+
+.tampilan_utama form .btn {
+  padding: 0.7rem 1.15rem;
+  color: white;
+  border: 0;
+  border-radius: 0.85rem;
+  background: linear-gradient(135deg, var(--primary), #7c3aed);
+  box-shadow: 0 8px 18px rgba(79, 70, 229, 0.24);
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.tampilan_utama form .btn:hover {
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(79, 70, 229, 0.3);
+}
+
+.kontainer_namasiswa {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 1.35rem;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(18px);
+}
+
+table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+}
+
+thead {
+  color: white;
+  background: linear-gradient(110deg, #4338ca, #6366f1 55%, #0891b2);
+}
+
+thead td {
+  padding: 1.1rem 1.35rem;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+
+thead td:first-child,
+thead td:last-child,
+tbody td:first-child,
+tbody td:last-child {
+  text-align: center;
+}
+
+tbody tr {
+  border-bottom: 1px solid var(--line);
+  transition: background 180ms ease, transform 180ms ease;
+}
+
+tbody tr:last-child {
+  border-bottom: 0;
+}
+
+tbody tr:hover {
+  background: #f5f7ff;
+}
+
+tbody td {
+  padding: 1.05rem 1.35rem;
+  color: #334155;
+  font-weight: 600;
+}
+
+tbody td:first-child {
+  color: var(--primary);
+  font-weight: 800;
+}
+
+tbody td:nth-child(3) {
+  color: #0e7490;
+  font-weight: 800;
+}
+
+tbody td:last-child {
+  color: #15803d;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+#nilaiRata2 {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1.15rem 1.35rem;
+  color: var(--primary-dark);
+  background: linear-gradient(90deg, #f8fafc, #eef2ff);
+}
+
+#nilaiRata2 h4 {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+@media (max-width: 650px) {
+  .tampilan_utama {
+    width: min(100% - 1rem, 1100px);
+    margin-top: 1.5rem;
+  }
+
+  .tampilan_utama > .navbar .container-fluid {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .tampilan_utama form,
+  .tampilan_utama form .form-control {
+    width: 100%;
+  }
+
+  .tampilan_utama form {
+    flex-direction: column;
+    align-items: stretch !important;
+  }
+
+  .kontainer_namasiswa {
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 560px;
+  }
+
+  #nilaiRata2 {
+    justify-content: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
